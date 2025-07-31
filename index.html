@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumitalk - AI Customer Support</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Manrope Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background-color: white;
+        font-family: "Manrope", sans-serif;
+        overflow-x: hidden;
+      }
+
+      .navbar-brand img {
+        height: 60px;
+        margin-right: 10px;
+      }
+
+      .main-heading {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #1c1c1c;
+      }
+
+      .hero-section {
+        padding: 100px 15px;
+        text-align: center;
+      }
+
+      .demo-btn {
+        box-shadow: rgb(254 135 164 / 67%) 0px 7px 29px 0px,
+          inset rgba(254, 135, 165, 0.16) 0px 10px 10px 0px;
+        border: 1px solid rgba(254, 135, 165, 0.373);
+      }
+
+      .pink-shadow {
+        box-shadow: rgb(254 135 164 / 67%) 0px 7px 29px 0px;
+      }
+
+      .pink-border {
+        border: 1px solid rgba(254, 135, 165, 0.373);
+      }
+
+      .Cards h6 {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+      }
+
+      .Cards p {
+        font-size: 10px !important;
+      }
+
+      /* Scroll section styles */
+      .scroll-section {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+      }
+
+      .cards-wrapper {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        will-change: transform;
+      }
+
+      .lines-container {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 600px;
+        pointer-events: none;
+      }
+
+      .line-img {
+        width: 3px;
+        height: 800px;
+        mix-blend-mode: darken;
+        object-fit: cover;
+      }
+
+      .card-item {
+        position: relative;
+        z-index: 10;
+        background: white;
+      }
+
+      .pink-text {
+        color: rgb(250 87 144);
+      }
+
+      /* H2 animation section */
+      .h2-animation-section {
+        position: relative;
+        min-height: 100vh;
+        /* padding-top: 100px; */
+      }
+
+      .h2-container {
+        position: relative;
+        height: 200px;
+        width: 100%;
+        margin-bottom: 100px;
+      }
+
+      .h2-item {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(50px);
+        will-change: transform, opacity;
+      }
+
+      /* Container to hold both sections */
+      .combined-section {
+        position: relative;
+      }
+
+      .lines-container {
+        height: 500px;
+        /* Match scroll-section height */
+      }
+
+      .stats-section {
+        position: relative;
+        width: 100%;
+      }
+
+      .stat-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        will-change: transform, opacity;
+      }
+
+      .stat-number {
+        font-size: 5rem;
+        font-weight: 800;
+        color: rgb(254 135 164);
+        margin-bottom: 1rem;
+        line-height: 1;
+      }
+
+      .stat-text {
+        font-size: 1.8rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        line-height: 1.4;
+      }
+
+      /* Ensure proper spacing */
+      .image-section {
+        margin-top: -300px;
+        position: relative;
+        z-index: -1;
+      }
+
+      /* Stats container */
+      .stats-container {
+        position: relative;
+        height: 100vh;
+      }
+
+      .main-title {
+        font-weight: 700;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .scroll-msg {
+        font-size: 1.2rem;
+        color: #666;
+      }
+
+      .icon {
+        font-size: 1.3rem;
+        margin-right: 8px;
+      }
+
+      .feature-title {
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+
+      .feature-desc {
+        color: #555;
+      }
+
+      .icon {
+        filter: grayscale(1);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .section-header small {
+        color: #fd5631;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        font-weight: 400;
+      }
+
+      .section-header strong {
+        font-weight: 800;
+      }
+
+      .feature-card {
+        background-color: #f1f3ec;
+        border-radius: 20px;
+        padding: 60px 40px;
+        height: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .feature-card img {
+        filter: grayscale(1);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card img:hover {
+        filter: none;
+      }
+
+      .feature-title {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-desc {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .btn-demo {
+        margin-top: 1rem;
+        font-weight: bold;
+        background-color: #00000000;
+        border: 1px solid #ccc;
+        color: #000;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-demo:hover {
+        box-shadow: rgb(254 135 164 / 67%) 0px 7px 29px 0px;
+      }
+
+      .call-section {
+        padding: 100px 20px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(6px);
+      }
+
+      .call-section h1 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: #264e1e;
+        margin-bottom: 0.5rem;
+      }
+
+      .call-section h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 2rem;
+      }
+
+      .voice-graphic {
+        display: inline-block;
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 20px 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .voice-graphic img {
+        max-height: 60px;
+      }
+
+      .call-info {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 0.25rem;
+      }
+
+      .call-btn {
+        background-color: #1d3b17;
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .call-btn:hover {
+        background-color: #2a5b23;
+      }
+
+      .default-bg {
+        text-align: center;
+        background: url(form-bg.png) no-repeat center center;
+        background-size: cover;
+      }
+
+      .form-section {
+        padding: 100px 20px;
+        text-align: center;
+        background: url(form-bg.png) no-repeat center center;
+        background-size: cover;
+      }
+
+      /* .form-section small {
+        color: #fd5631;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+      } */
+
+      .form-section h2 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: #1e3a20;
+        line-height: 1.3;
+      }
+
+      .form-container {
+        background-color: #f1f3ec;
+        padding: 30px;
+        border-radius: 16px;
+        max-width: 500px;
+        margin: 40px auto 0;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-label {
+        font-weight: 600;
+        text-align: left;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-control {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding: 10px 15px;
+      }
+
+      .btn-submit {
+        background-color: #1d3b17;
+        color: white;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        width: 100%;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-submit:hover {
+        background-color: #2c5e27;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 60px 100px 30px;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+      }
+
+      .footer-left {
+        max-width: 600px;
+      }
+
+      .footer-left p {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .footer-nav {
+        display: flex;
+        gap: 100px;
+        flex-wrap: wrap;
+      }
+
+      .footer-nav div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        color: #666;
+        font-size: 16px;
+      }
+
+      .footer-bottom {
+        padding: 20px 100px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: #666;
+        border-top: 1px solid #eee;
+      }
+
+      .footer-bottom a {
+        color: #666;
+        text-decoration: none;
+        margin-left: 24px;
+      }
+
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      .dot {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background: gray;
+        display: inline-block;
+        border: 2px solid #555;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white px-4">
+      <div class="container">
+        <div class="row w-100">
+          <div class="col-md-4 d-flex justify-content-start align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+              <img
+                src="https://lumitalk.ai/wp-content/uploads/2025/05/Pink-White-Modern-Artificial-Intelligence-Logo-3-e1748453972867.png"
+                alt="Logo"
+              />
+            </a>
+          </div>
+          <div
+            class="col-md-4 fw-semibold d-flex justify-content-center align-items-center"
+          >
+            <div class="d-flex align-items-center gap-5">
+              <a class="nav-link text-secondary" href="#">Product</a>
+              <a class="nav-link text-secondary" href="#">Integrations</a>
+              <a class="nav-link text-secondary" href="#">Pricing</a>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex justify-content-end align-items-center">
+            <div class="d-flex align-items-center gap-3">
+              <a class="btn btn-dark" href="#">Login</a>
+              <a class="btn btn-light fw-semibold demo-btn" href="#"
+                >Book a Demo</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="main-heading fw-semibold">
+          The Future of AI-powered <br />
+          Customer Support
+        </h1>
+        <div class="hero-text">
+          <p class="fw-semibold mt-3">
+            Automating customer support calls using <br />Lumitalk's AI-powered
+            voice assistant.
+          </p>
+          <a href="#" class="btn btn-dark mt-3 py-2 px-3 pink-shadow"
+            >Book a Demo</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Combined Section -->
+    <div class="combined-section">
+      <!-- Cards Section -->
+      <section class="scroll-section">
+        <!-- Lines Container -->
+        <div class="lines-container">
+          <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+              <div class="col-md-2 h-100 d-flex justify-content-center">
+                <img src="line.jpg" alt="" class="line-img" />
+              </div>
+              <div class="col-md-2 h-100 d-flex justify-content-center">
+                <img src="line.jpg" alt="" class="line-img" />
+              </div>
+              <div class="col-md-2 h-100 d-flex justify-content-center">
+                <img src="line.jpg" alt="" class="line-img" />
+              </div>
+              <div class="col-md-2 h-100 d-flex justify-content-center">
+                <img src="line.jpg" alt="" class="line-img" />
+              </div>
+              <div class="col-md-2 h-100 d-flex justify-content-center">
+                <img src="line.jpg" alt="" class="line-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards Wrapper -->
+        <div class="cards-wrapper" id="cardsWrapper">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-2">
+                <div
+                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                >
+                  <div>
+                    <img
+                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                      alt=""
+                      width="50"
+                      height="50"
+                      class="object-fit-cover"
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-start flex-column"
+                  >
+                    <h6 class="fs-6 m-0 p-0">Where is my order?</h6>
+                    <p class="m-0">Dialing...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                >
+                  <div>
+                    <img
+                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                      alt=""
+                      width="50"
+                      height="50"
+                      class="object-fit-cover"
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-start flex-column"
+                  >
+                    <h6 class="fs-6 m-0 p-0">Order Status</h6>
+                    <p class="m-0">Dialing...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                >
+                  <div>
+                    <img
+                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                      alt=""
+                      width="50"
+                      height="50"
+                      class="object-fit-cover"
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-start flex-column"
+                  >
+                    <h6 class="fs-6 m-0 p-0">Return Request</h6>
+                    <p class="m-0">Dialing...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                >
+                  <div>
+                    <img
+                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                      alt=""
+                      width="50"
+                      height="50"
+                      class="object-fit-cover"
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-start flex-column"
+                  >
+                    <h6 class="fs-6 m-0 p-0">Payment Issue</h6>
+                    <p class="m-0">Dialing...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                >
+                  <div>
+                    <img
+                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                      alt=""
+                      width="50"
+                      height="50"
+                      class="object-fit-cover"
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-start flex-column"
+                  >
+                    <h6 class="fs-6 m-0 p-0">Technical Support</h6>
+                    <p class="m-0">Dialing...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Image section -->
+      <section class="text-center pb-5">
+        <div class="container">
+          <img src="assist.png" class="w-100 object-fit-cover" alt="" />
+        </div>
+      </section>
+
+      <!-- H2 Animation Section -->
+      <section class="h2-animation-section">
+        <div class="h2-container">
+          <h2 class="h2-item fw-semibold">
+            Lumitalk handles the majority of <br /><span class="pink-text"
+              >non-emergency calls</span
+            >
+          </h2>
+          <h2 class="h2-item fw-semibold">
+            Leaving call takers free to focus on
+            <br /><span class="pink-text">crucial emergency calls.</span>
+          </h2>
+          <h2 class="h2-item fw-semibold">
+            Lumitalk handles the majority of <br /><span class="pink-text"
+              >non-emergency calls</span
+            >
+          </h2>
+          <h2 class="h2-item fw-semibold">
+            Leaving call takers free to focus on
+            <br /><span class="pink-text">crucial emergency calls.</span>
+          </h2>
+        </div>
+      </section>
+    </div>
+
+    <!-- Before stats Image-->
+    <section>
+      <img
+        src="https://cdn.prod.website-files.com/677f3ec7be15d333067898f7/6780a47461bcb5baf5afbea7_home-image%201.webp"
+        class="w-100"
+        style="margin-top: -500px"
+        alt=""
+      />
+    </section>
+
+    <!-- Stats and Features Section -->
+    <div class="stats-feature-wrapper">
+      <!-- Stats Section -->
+      <section class="stats-section" style="background-color: #e9ebe2">
+        <div class="stats-container">
+          <!-- Stat 1 -->
+          <div class="stat-item">
+            <div class="stat-number">60%</div>
+            <div class="stat-text">
+              of calls are non-emergency, clogging up the lines, leading to
+              delays for critical emergencies.
+            </div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="stat-item">
+            <div class="stat-number">1-2 min</div>
+            <div class="stat-text">
+              long wait times to answer the initial call.
+            </div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="stat-item">
+            <div class="stat-number">4 in 5</div>
+            <div class="stat-text">
+              of call centers are understaffed and struggling to hire/retain
+              staff due to stress/burnout.
+            </div>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="stat-item">
+            <div class="stat-number">+1 year</div>
+            <div class="stat-text">
+              the time it can take to train a single call-taker/dispatcher.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Section -->
+      <section class="feature-section" style="background-color: #e9ebe2">
+        <div class="container py-5 text-center">
+          <h2 class="mt-2 display-5 fw-semibold">
+            Lumitalk automatically<br />resolves 75% of non -<br />emergency
+            calls using<br />Voice AI
+          </h2>
+
+          <p class="scroll-msg mt-3">
+            Scroll to find out how…<br /><span style="font-size: 2rem">↓</span>
+          </p>
+
+          <div class="row row-cols-1 row-cols-md-3 g-5 mt-5 text-start">
+            <div class="col">
+              <div>
+                <p class="feature-title">
+                  <span class="icon emoji-orange">⚡</span>Instantly trained
+                </p>
+                <p class="feature-desc">
+                  Hyper starts with full context of your standard operating
+                  procedures to provide consistent, reliable service.
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div>
+                <p class="feature-title">
+                  <span class="icon emoji-pink">🎯</span>Automate 75% of
+                  non-emergent calls
+                </p>
+                <p class="feature-desc">
+                  Automate 75% of non-emergency calls, letting your skilled
+                  call-takers focus exclusively on critical responses.
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div>
+                <p class="feature-title">
+                  <span class="icon emoji-red">📊</span>Surge/spike proof
+                </p>
+                <p class="feature-desc">
+                  Instantly expand capacity during major events and emergencies.
+                  Never be overwhelmed by call surges again.
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div>
+                <p class="feature-title">
+                  <span class="icon emoji-yellow">🌐</span>Real-time automatic
+                  translation
+                </p>
+                <p class="feature-desc">
+                  Serve 30+ languages instantly, ensuring every caller receives
+                  prompt, accurate assistance in their preferred language.
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div>
+                <p class="feature-title">
+                  <span class="icon emoji-heart">❤️</span>Capable of conveying
+                  emotional empathy
+                </p>
+                <p class="feature-desc">
+                  Our conversational AI delivers natural, empathetic
+                  interactions, maintaining a human-like touch.
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div>
+                <p class="feature-title">
+                  <span class="icon emoji-orange">🧭</span>Up front triage
+                </p>
+                <p class="feature-desc">
+                  Identify and prioritize emergency calls and provide warm
+                  transfers if escalations are needed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Platform -->
+    <section class="container text-center py-5">
+      <!-- Header -->
+      <div>
+        <small class="pink-text fw-semibold text-uppercase">Platform</small>
+
+        <h2 class="mt-2 display-6 mb-5 fw-semibold">
+          <span class="text-secondary"
+            >Understand the features that <br />
+            make us</span
+          >
+          Hyper-effective.
+        </h2>
+      </div>
+
+      <!-- Grid -->
+      <div class="row g-4 text-start">
+        <!-- Feature 1 -->
+        <div class="col-md-8">
+          <div class="feature-card">
+            <div>
+              <span class="dot mb-2"></span>
+            </div>
+            <div class="feature-title">AI Agent for Non-Emergency Calls</div>
+            <div class="feature-desc">
+              Our AI Agent autonomously resolves up to 75% of non-emergency
+              calls, freeing your call takers to focus on more critical
+              emergencies. Understanding context, validating location,
+              escalating when needed, and responding with an empathetic and
+              natural tone, our platform also supports multi-lingual voice and
+              text interactions, while maintaining full records compliance.
+            </div>
+            <button class="btn-demo">Book a Demo</button>
+          </div>
+        </div>
+
+        <!-- Image Card -->
+        <div class="col-md-4">
+          <div
+            class="feature-card d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="https://cdn.prod.website-files.com/677f3ec7be15d333067898f7/67876238f37201dcc685adb6_benefit%20image%201d.webp"
+              class="w-75"
+              alt="Hyper AI"
+            />
+          </div>
+        </div>
+
+        <!-- Feature 2 Image -->
+        <div class="col-md-4">
+          <div
+            class="feature-card d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="https://cdn.prod.website-files.com/677f3ec7be15d333067898f7/67876238f37201dcc685adb6_benefit%20image%201d.webp"
+              class="w-75"
+              alt="Hyper AI"
+            />
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-8">
+          <div class="feature-card">
+            <div>
+              <span class="dot mb-2"></span>
+            </div>
+            <div class="feature-title">Call Routing & Escalation</div>
+            <div class="feature-desc">
+              Seamlessly integrate AI into your existing operations. Whether
+              PSTN or SIP, we can integrate with your current Call Handling
+              System (CHS) to ensure smooth handling of non-emergency calls with
+              intelligent routing, instant escalation capabilities, and
+              automated follow-up communications.
+            </div>
+            <button class="btn-demo">Book a Demo</button>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-8">
+          <div class="feature-card">
+            <div>
+              <span class="dot mb-2"></span>
+            </div>
+            <div class="feature-title">Quality Assurance & Analytics</div>
+            <div class="feature-desc">
+              Optimize operations with real-time analytics and automated QA.
+              Track call deflection rates, response times, and call types
+              through a comprehensive dashboard. Maintain complete call records
+              with automated transcription, categorization, and performance
+              tracking that meet your retention requirements.
+            </div>
+            <button class="btn-demo">Book a Demo</button>
+          </div>
+        </div>
+
+        <!-- Image Card -->
+        <div class="col-md-4">
+          <div
+            class="feature-card d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="https://cdn.prod.website-files.com/677f3ec7be15d333067898f7/67876238f37201dcc685adb6_benefit%20image%201d.webp"
+              class="w-75"
+              alt="Hyper AI"
+            />
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div>
+              <span class="dot mb-2"></span>
+            </div>
+            <div class="feature-title">Hyper Command Centre</div>
+            <div class="feature-desc">
+              Real-time AI call monitoring with instant call taker intervention.
+              Configure responses based on your PSAP's Standard Operating
+              Procedures.
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div>
+              <span class="dot mb-2"></span>
+            </div>
+            <div class="feature-title">Seamless Systems Integration</div>
+            <div class="feature-desc">
+              Integrate directly with CAD, RMS, and Online Reporting through
+              secure APIs designed for public safety systems.
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div>
+              <span class="dot mb-2"></span>
+            </div>
+            <div class="feature-title">Mission-Critical Security</div>
+            <div class="feature-desc">
+              ISO 27000/SOC 2 certified infrastructure with regional data
+              residency and enterprise-grade security controls.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="default-bg border" style="padding: 150px 0">
+      <h2 class="mt-2 display-4 fw-semibold">
+        Call now and<br />experience Lumitalk<br />for yourself
+      </h2>
+
+      <img src="lumi-voice.png" class="w-50 py-4" alt="" />
+
+      <h6 class="text-secondary">Try it now, by calling:</h6>
+      <button class="btn btn-dark pink-shadow mt-3">LumiTalk</button>
+    </section>
+
+    <!-- Img -->
+    <section>
+      <img
+        src="https://cdn.prod.website-files.com/677f3ec7be15d333067898f7/6780a474f83cf1353160268d_home-image%202.webp"
+        class="w-100"
+        alt=""
+      />
+    </section>
+
+    <!-- Form -->
+    <section class="text-center py-5 default-bg">
+      <small class="pink-text fw-semibold text-uppercase">Get Started</small>
+      <h2 class="mt-2 display-4 fw-semibold">
+        Book a demo to experience<br />the full range of Lumitalk <br />
+        capabilities.
+      </h2>
+      <div class="form-container text-start shadow-lg">
+        <form>
+          <label class="form-label" for="name">Full Name*</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Your Full Name..."
+            required
+          />
+
+          <label class="form-label" for="email">Email Address*</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Your Email Address..."
+            required
+          />
+
+          <label class="form-label" for="location">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            placeholder="Your location..."
+          />
+
+          <label class="form-label" for="volume">Annual Call Volume</label>
+          <input
+            type="text"
+            class="form-control"
+            id="volume"
+            placeholder="How many calls per year your team receives"
+          />
+
+          <button
+            type="submit"
+            class="btn btn-dark pink-shadow w-100 py-2 mt-2"
+          >
+            Book a Demo
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-left">
+        <img
+          src="https://lumitalk.ai/wp-content/uploads/2025/05/Pink-White-Modern-Artificial-Intelligence-Logo-3-e1748453972867.png"
+          width="200"
+          height="70"
+          class="object-fit-cover"
+          alt="LumiTalk logo"
+        />
+        <p>
+          Automating non-emergency 9-1-1<br />calls to speed up response
+          times<br />and save lives.
+        </p>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <span>Platform</span>
+          <span>Solutions</span>
+          <span>Experience</span>
+        </div>
+        <div>
+          <span>Company</span>
+          <span>Careers</span>
+          <span>Security</span>
+        </div>
+        <div>
+          <span>Sales</span>
+          <span>Support</span>
+          <span>
+            <i class="fab fa-linkedin"></i>
+            <i class="fab fa-x-twitter"></i>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      <span>All Rights Reserved Hyper © 2025</span>
+      <div>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. CARDS SECTION ANIMATION
+        const scrollSection = document.querySelector(".scroll-section");
+        const cardsWrapper = document.getElementById("cardsWrapper");
+        const linesContainer = document.querySelector(".lines-container");
+
+        // Calculate animation distance (lines height - initial offset)
+        const animationDistance = linesContainer.offsetHeight - 100;
+
+        // Create the animation for cards section
+        gsap.to(cardsWrapper, {
+          y: animationDistance,
+          ease: "none",
+          scrollTrigger: {
+            trigger: scrollSection,
+            start: "top top",
+            end: `+=${animationDistance}`,
+            scrub: true,
+            pin: true,
+            markers: false,
+            anticipatePin: 1,
+          },
+        });
+
+        // 2. H2 ITEMS ANIMATION
+        const h2Items = gsap.utils.toArray(".h2-item");
+
+        // Set initial state for all h2 items except first
+        gsap.set(h2Items.slice(1), { opacity: 0, y: 50 });
+
+        // Create timeline for h2 items
+        const h2Timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".h2-animation-section",
+            start: "top 50%",
+            end: "bottom bottom",
+            scrub: 1,
+            pin: ".combined-section",
+            markers: false,
+          },
+        });
+
+        // Add animations for each h2 item
+        h2Items.forEach((item, i) => {
+          // Show current item
+          h2Timeline.to(
+            item,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+            },
+            i * 0.5
+          );
+
+          // Hide current item and show next (except for last item)
+          if (i < h2Items.length - 1) {
+            h2Timeline.to(
+              item,
+              {
+                opacity: 0,
+                y: -50,
+                duration: 0.5,
+              },
+              i * 0.5 + 0.5
+            );
+          }
+        });
+
+        // 3. STATS SECTION ANIMATION
+        const statItems = gsap.utils.toArray(".stat-item");
+        const statsContainer = document.querySelector(".stats-container");
+        const featureSection = document.querySelector(".feature-section");
+
+        // Set initial states
+        gsap.set(statItems[0], { opacity: 1, y: 0 });
+        gsap.set(statItems.slice(1), { opacity: 0, y: 20 });
+        gsap.set(featureSection, { opacity: 0, y: 20 }); // Initially hidden
+
+        // Create master timeline for stats and feature transition
+        const masterTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".stats-feature-wrapper",
+            start: "top top",
+            end: "+=5000", // Adjust based on your content height
+            scrub: 1,
+            pin: true,
+            markers: false, // Set to true for debugging
+          },
+        });
+
+        // Add stats items animations
+        statItems.forEach((item, i) => {
+          if (i > 0) {
+            masterTimeline.to(
+              statItems[i - 1],
+              {
+                opacity: 0,
+                y: -20,
+                duration: 0.8,
+              },
+              `+=${i * 0.5}`
+            );
+
+            masterTimeline.to(
+              item,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+              },
+              `+=${i * 0.5}`
+            );
+          }
+        });
+
+        // After last stat item, fade in feature section
+        masterTimeline.to(
+          featureSection,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "+=0.5"
+        ); // Small delay after last stat
+
+        // Optional: Add a small movement effect to feature section
+        ScrollTrigger.create({
+          trigger: featureSection,
+          start: "top 60%",
+          end: "bottom bottom",
+          onEnter: () => {
+            gsap.from(featureSection, {
+              y: 50,
+              duration: 1,
+              ease: "power2.out",
+            });
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
