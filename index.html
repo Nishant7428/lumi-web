@@ -74,8 +74,8 @@
 
       /* Scroll section styles */
       .scroll-section {
-        position: relative;
-        height: 500px;
+        /* position: relative; */
+        height: 600px;
         overflow: hidden;
       }
 
@@ -86,17 +86,26 @@
         will-change: transform;
       }
 
+      .cards-wrapper h6 {
+        font-size: 14px !important;
+        font-weight: bolder;
+      }
+      .cards-wrapper p {
+        font-size: 10px !important;
+        font-weight: 600;
+      }
+
       .lines-container {
         position: absolute;
         top: 0;
         width: 100%;
-        height: 600px;
+        height: 800px;
         pointer-events: none;
       }
 
       .line-img {
         width: 3px;
-        height: 800px;
+        height: 600px;
         mix-blend-mode: darken;
         object-fit: cover;
       }
@@ -104,7 +113,9 @@
       .card-item {
         position: relative;
         z-index: 10;
-        background: white;
+        background-color: white;
+        color: #000;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
       }
 
       .pink-text {
@@ -137,11 +148,6 @@
       /* Container to hold both sections */
       .combined-section {
         position: relative;
-      }
-
-      .lines-container {
-        height: 500px;
-        /* Match scroll-section height */
       }
 
       .stats-section {
@@ -513,7 +519,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section default-bg">
       <div class="container">
         <h1 class="main-heading fw-semibold">
           The Future of AI-powered <br />
@@ -564,7 +570,7 @@
             <div class="row justify-content-center">
               <div class="col-md-2">
                 <div
-                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
                 >
                   <div>
                     <img
@@ -578,14 +584,35 @@
                   <div
                     class="d-flex justify-content-center align-items-start flex-column"
                   >
-                    <h6 class="fs-6 m-0 p-0">Where is my order?</h6>
+                    <h6 class="m-0 p-0">Where is my order?</h6>
+                    <p class="m-0">Connected with Support</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
+                >
+                  <div>
+                    <img
+                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                      alt=""
+                      width="50"
+                      height="50"
+                      class="object-fit-cover"
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-start flex-column"
+                  >
+                    <h6 class="m-0 p-0">Order Status</h6>
                     <p class="m-0">Dialing...</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-2">
                 <div
-                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
                 >
                   <div>
                     <img
@@ -599,14 +626,14 @@
                   <div
                     class="d-flex justify-content-center align-items-start flex-column"
                   >
-                    <h6 class="fs-6 m-0 p-0">Order Status</h6>
+                    <h6 class="m-0 p-0">Return Request</h6>
                     <p class="m-0">Dialing...</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-2">
                 <div
-                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
                 >
                   <div>
                     <img
@@ -620,14 +647,14 @@
                   <div
                     class="d-flex justify-content-center align-items-start flex-column"
                   >
-                    <h6 class="fs-6 m-0 p-0">Return Request</h6>
+                    <h6 class="m-0 p-0">Payment Issue</h6>
                     <p class="m-0">Dialing...</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-2">
                 <div
-                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
+                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
                 >
                   <div>
                     <img
@@ -641,28 +668,7 @@
                   <div
                     class="d-flex justify-content-center align-items-start flex-column"
                   >
-                    <h6 class="fs-6 m-0 p-0">Payment Issue</h6>
-                    <p class="m-0">Dialing...</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div
-                  class="d-flex p-2 justify-content-center align-items-center gap-3 pink-shadow pink-border rounded bg-light card-item"
-                >
-                  <div>
-                    <img
-                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                      alt=""
-                      width="50"
-                      height="50"
-                      class="object-fit-cover"
-                    />
-                  </div>
-                  <div
-                    class="d-flex justify-content-center align-items-start flex-column"
-                  >
-                    <h6 class="fs-6 m-0 p-0">Technical Support</h6>
+                    <h6 class="m-0 p-0">Technical Support</h6>
                     <p class="m-0">Dialing...</p>
                   </div>
                 </div>
@@ -1124,43 +1130,156 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Register ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
 
-        // 1. CARDS SECTION ANIMATION
-        const scrollSection = document.querySelector(".scroll-section");
         const cardsWrapper = document.getElementById("cardsWrapper");
-        const linesContainer = document.querySelector(".lines-container");
+        const cards = document.querySelectorAll(".card-item");
 
-        // Calculate animation distance (lines height - initial offset)
-        const animationDistance = linesContainer.offsetHeight - 100;
+        // === INDIVIDUAL CARD MOVEMENT CONFIG ===
+        cards.forEach((card, index) => {
+          let xOffset = 0;
+          let yOffset = 500;
 
-        // Create the animation for cards section
-        gsap.to(cardsWrapper, {
-          y: animationDistance,
-          ease: "none",
-          scrollTrigger: {
-            trigger: scrollSection,
-            start: "top top",
-            end: `+=${animationDistance}`,
-            scrub: true,
-            pin: true,
-            markers: false,
-            anticipatePin: 1,
+          switch (index) {
+            case 0:
+              xOffset = -40;
+              break;
+            case 1:
+              xOffset = -20;
+              break;
+            case 2:
+              xOffset = 0;
+              break;
+            case 3:
+              xOffset = 20;
+              break;
+            case 4:
+              xOffset = 40;
+              break;
+          }
+
+          // Custom ease for each card
+          let easeCurve;
+          switch (index) {
+            case 0:
+            case 2:
+              easeCurve = "power1.inOut"; // smooth slow-fast-slow
+              break;
+            case 1:
+            case 3:
+              easeCurve = "cubic-bezier(0.45, 0, 0.55, 1)";
+              // balanced slow start but stays visible
+              break;
+            case 4:
+              easeCurve = "power4.out"; // fast start then smooth stop
+              break;
+          }
+
+          gsap.set(card, {
+            y: 10 * index,
+            x: xOffset / 4,
+          });
+
+          gsap.to(card, {
+            y: yOffset,
+            x: xOffset,
+            ease: easeCurve,
+            scrollTrigger: {
+              trigger: ".scroll-section",
+              start: "top-=100 top",
+              end: `+=${yOffset}`,
+              scrub: true,
+            },
+          });
+        });
+
+        // === TEXT & BG CHANGE 1: Dialing -> Waiting ===
+        ScrollTrigger.create({
+          trigger: cardsWrapper,
+          start: "top top",
+          end: "bottom top",
+          onEnter: () => {
+            cards.forEach((card, index) => {
+              const p = card.querySelector("p");
+              if (index === 0) return; // Skip first card
+
+              if (p && p.textContent.trim().toLowerCase() === "dialing...") {
+                let waitTime = card.getAttribute("data-waiting");
+                if (!waitTime) {
+                  waitTime = Math.floor(Math.random() * 41) + 20;
+                  card.setAttribute("data-waiting", waitTime);
+                }
+                p.textContent = `Waiting since ${waitTime} sec`;
+                card.style.color = "#f42424";
+              }
+            });
+          },
+          onLeaveBack: () => {
+            cards.forEach((card, index) => {
+              const p = card.querySelector("p");
+              if (index === 0) return; // Skip first card
+
+              if (p && p.textContent.toLowerCase().includes("waiting since")) {
+                p.textContent = "Dialing...";
+                card.style.color = "";
+              }
+            });
           },
         });
 
-        // 2. H2 ITEMS ANIMATION
-        const h2Items = gsap.utils.toArray(".h2-item");
+        // === TEXT & BG CHANGE 2: Waiting -> Connected ===
+        ScrollTrigger.create({
+          trigger: cardsWrapper,
+          start: "top+=400 top",
+          end: "bottom top",
+          onEnter: () => {
+            cards.forEach((card, index) => {
+              const p = card.querySelector("p");
+              if (p) {
+                if (index === 2) {
+                  p.textContent = "Connected with Support";
+                  card.style.backgroundColor = "#37bf16"; // light green
+                  card.style.color = "#fff";
+                } else {
+                  p.textContent = "Connected with Lumi";
+                  card.style.backgroundColor = "#fa5790";
+                  card.style.color = "#fff";
+                }
+              }
+            });
+          },
+          onLeaveBack: () => {
+            cards.forEach((card, index) => {
+              const p = card.querySelector("p");
+              const waitTime = card.getAttribute("data-waiting");
 
-        // Set initial state for all h2 items except first
+              if (
+                p &&
+                (p.textContent.includes("Connected with Lumi") ||
+                  p.textContent.includes("Connected with Support"))
+              ) {
+                if (index === 0) {
+                  p.textContent = "Connected with Support";
+                  card.style.backgroundColor = "#fff";
+                  card.style.color = "#000";
+                } else if (waitTime) {
+                  p.textContent = `Waiting since ${waitTime} sec`;
+                  card.style.backgroundColor = "#fff";
+                  card.style.color = "#f42424";
+                }
+              }
+            });
+          },
+        });
+
+        // === H2 ANIMATION ===
+        const h2Items = gsap.utils.toArray(".h2-item");
         gsap.set(h2Items.slice(1), { opacity: 0, y: 50 });
 
-        // Create timeline for h2 items
         const h2Timeline = gsap.timeline({
           scrollTrigger: {
             trigger: ".h2-animation-section",
-            start: "top 50%",
+            start: "top-=150 50%",
             end: "bottom bottom",
             scrub: 1,
             pin: ".combined-section",
@@ -1168,9 +1287,7 @@
           },
         });
 
-        // Add animations for each h2 item
         h2Items.forEach((item, i) => {
-          // Show current item
           h2Timeline.to(
             item,
             {
@@ -1181,7 +1298,6 @@
             i * 0.5
           );
 
-          // Hide current item and show next (except for last item)
           if (i < h2Items.length - 1) {
             h2Timeline.to(
               item,
@@ -1195,29 +1311,25 @@
           }
         });
 
-        // 3. STATS SECTION ANIMATION
+        // === STATS SECTION ANIMATION ===
         const statItems = gsap.utils.toArray(".stat-item");
-        const statsContainer = document.querySelector(".stats-container");
         const featureSection = document.querySelector(".feature-section");
 
-        // Set initial states
         gsap.set(statItems[0], { opacity: 1, y: 0 });
         gsap.set(statItems.slice(1), { opacity: 0, y: 20 });
-        gsap.set(featureSection, { opacity: 0, y: 20 }); // Initially hidden
+        gsap.set(featureSection, { opacity: 0, y: 20 });
 
-        // Create master timeline for stats and feature transition
         const masterTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: ".stats-feature-wrapper",
             start: "top top",
-            end: "+=5000", // Adjust based on your content height
+            end: "+=5000",
             scrub: 1,
             pin: true,
-            markers: false, // Set to true for debugging
+            markers: false,
           },
         });
 
-        // Add stats items animations
         statItems.forEach((item, i) => {
           if (i > 0) {
             masterTimeline.to(
@@ -1242,7 +1354,6 @@
           }
         });
 
-        // After last stat item, fade in feature section
         masterTimeline.to(
           featureSection,
           {
@@ -1252,9 +1363,8 @@
             ease: "power2.out",
           },
           "+=0.5"
-        ); // Small delay after last stat
+        );
 
-        // Optional: Add a small movement effect to feature section
         ScrollTrigger.create({
           trigger: featureSection,
           start: "top 60%",
