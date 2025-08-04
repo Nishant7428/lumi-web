@@ -99,16 +99,22 @@
         position: absolute;
         top: 0;
         width: 100%;
-        height: 800px;
+        height: 525px; /* 75% of 700px (original line height) */
         pointer-events: none;
+        overflow: hidden; /* This will hide the bottom 25% */
+        transition: height 1s ease; /* Smooth transition for height change */
       }
 
       .line-img {
-        /* width: 3px; */
-        height: 700px;
+        height: 700px; /* Keep original height */
         mix-blend-mode: darken;
         object-fit: cover;
         z-index: -2;
+        /* Remove any transform properties */
+      }
+
+      .lines-container.show-full {
+        height: 700px; /* Full height when this class is added */
       }
 
       .card-item {
@@ -482,7 +488,7 @@
         display: inline-block;
         border: 2px solid #555;
       }
-      .bg-overlay {
+      /* .bg-overlay {
         background: linear-gradient(
           0deg,
           #ffffff 0%,
@@ -496,7 +502,7 @@
         position: absolute;
         top: -80px;
         z-index: -1;
-      }
+      } */
     </style>
   </head>
 
@@ -1253,6 +1259,11 @@
               duration: 1,
               ease: "power2.out",
             });
+
+            // Show full lines (remove bottom cutoff)
+            document
+              .querySelector(".lines-container")
+              .classList.add("show-full");
           },
 
           onEnterBack: () => {
@@ -1273,6 +1284,11 @@
               duration: 1,
               ease: "power2.in",
             });
+
+            // Hide bottom 25% of lines again
+            document
+              .querySelector(".lines-container")
+              .classList.remove("show-full");
           },
         });
 
