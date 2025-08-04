@@ -104,10 +104,11 @@
       }
 
       .line-img {
-        width: 3px;
-        height: 600px;
+        /* width: 3px; */
+        height: 700px;
         mix-blend-mode: darken;
         object-fit: cover;
+        z-index: -2;
       }
 
       .card-item {
@@ -481,6 +482,21 @@
         display: inline-block;
         border: 2px solid #555;
       }
+      .bg-overlay {
+        background: linear-gradient(
+          0deg,
+          #ffffff 0%,
+          #ffffff 50%,
+          #ffffff 75%,
+          #ffffff 90%,
+          #ffffff00 100%
+        );
+        height: 300px;
+        width: 1300px;
+        position: absolute;
+        top: -80px;
+        z-index: -1;
+      }
     </style>
   </head>
 
@@ -518,196 +534,269 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section default-bg">
-      <div class="container">
-        <h1 class="main-heading fw-semibold">
-          The Future of AI-powered <br />
-          Customer Support
-        </h1>
-        <div class="hero-text">
-          <p class="fw-semibold mt-3">
-            Automating customer support calls using <br />Lumitalk's AI-powered
-            voice assistant.
-          </p>
-          <a href="#" class="btn btn-dark mt-3 py-2 px-3 pink-shadow"
-            >Book a Demo</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- Combined Section -->
-    <div class="combined-section">
-      <!-- Cards Section -->
-      <section class="scroll-section">
-        <!-- Lines Container -->
-        <div class="lines-container">
-          <div class="container h-100">
-            <div class="row h-100 justify-content-center align-items-center">
-              <div class="col-md-2 h-100 d-flex justify-content-center">
-                <img src="line.jpg" alt="" class="line-img" />
-              </div>
-              <div class="col-md-2 h-100 d-flex justify-content-center">
-                <img src="line.jpg" alt="" class="line-img" />
-              </div>
-              <div class="col-md-2 h-100 d-flex justify-content-center">
-                <img src="line.jpg" alt="" class="line-img" />
-              </div>
-              <div class="col-md-2 h-100 d-flex justify-content-center">
-                <img src="line.jpg" alt="" class="line-img" />
-              </div>
-              <div class="col-md-2 h-100 d-flex justify-content-center">
-                <img src="line.jpg" alt="" class="line-img" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cards Wrapper -->
-        <div class="cards-wrapper" id="cardsWrapper">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-2">
-                <div
-                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
-                >
-                  <div>
-                    <img
-                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                      alt=""
-                      width="50"
-                      height="50"
-                      class="object-fit-cover"
-                    />
-                  </div>
-                  <div
-                    class="d-flex justify-content-center align-items-start flex-column"
-                  >
-                    <h6 class="m-0 p-0">Where is my order?</h6>
-                    <p class="m-0">Connected with Support</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div
-                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
-                >
-                  <div>
-                    <img
-                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                      alt=""
-                      width="50"
-                      height="50"
-                      class="object-fit-cover"
-                    />
-                  </div>
-                  <div
-                    class="d-flex justify-content-center align-items-start flex-column"
-                  >
-                    <h6 class="m-0 p-0">Order Status</h6>
-                    <p class="m-0">Dialing...</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div
-                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
-                >
-                  <div>
-                    <img
-                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                      alt=""
-                      width="50"
-                      height="50"
-                      class="object-fit-cover"
-                    />
-                  </div>
-                  <div
-                    class="d-flex justify-content-center align-items-start flex-column"
-                  >
-                    <h6 class="m-0 p-0">Return Request</h6>
-                    <p class="m-0">Dialing...</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div
-                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
-                >
-                  <div>
-                    <img
-                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                      alt=""
-                      width="50"
-                      height="50"
-                      class="object-fit-cover"
-                    />
-                  </div>
-                  <div
-                    class="d-flex justify-content-center align-items-start flex-column"
-                  >
-                    <h6 class="m-0 p-0">Payment Issue</h6>
-                    <p class="m-0">Dialing...</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div
-                  class="d-flex p-2 justify-content-start align-items-start gap-3 pink-shadow pink-border rounded card-item"
-                >
-                  <div>
-                    <img
-                      src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-                      alt=""
-                      width="50"
-                      height="50"
-                      class="object-fit-cover"
-                    />
-                  </div>
-                  <div
-                    class="d-flex justify-content-center align-items-start flex-column"
-                  >
-                    <h6 class="m-0 p-0">Technical Support</h6>
-                    <p class="m-0">Dialing...</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Image section -->
-      <section class="text-center pb-5">
+    <div
+      style="
+        background: url(bg.png);
+        background-size: contain;
+        background-position: top center;
+        background-repeat: no-repeat;
+      "
+    >
+      <!-- Hero Section -->
+      <section class="hero-section">
         <div class="container">
-          <img src="assist.png" class="w-100 object-fit-cover" alt="" />
+          <h1 class="main-heading fw-semibold">
+            The Future of AI-powered <br />
+            Customer Support
+          </h1>
+          <div class="hero-text">
+            <p class="fw-semibold mt-3">
+              Automating customer support calls using <br />Lumitalk's
+              AI-powered voice assistant.
+            </p>
+            <a href="#" class="btn btn-dark mt-3 py-2 px-3 pink-shadow"
+              >Book a Demo</a
+            >
+          </div>
         </div>
       </section>
 
-      <!-- H2 Animation Section -->
-      <section class="h2-animation-section">
-        <div class="h2-container">
-          <h2 class="h2-item fw-semibold">
-            Lumitalk handles the majority of <br /><span class="pink-text"
-              >non-emergency calls</span
-            >
-          </h2>
-          <h2 class="h2-item fw-semibold">
-            Leaving call takers free to focus on
-            <br /><span class="pink-text">crucial emergency calls.</span>
-          </h2>
-          <h2 class="h2-item fw-semibold">
-            Lumitalk handles the majority of <br /><span class="pink-text"
-              >non-emergency calls</span
-            >
-          </h2>
-          <h2 class="h2-item fw-semibold">
-            Leaving call takers free to focus on
-            <br /><span class="pink-text">crucial emergency calls.</span>
-          </h2>
-        </div>
-      </section>
+      <!-- Combined Section -->
+      <div class="combined-section">
+        <!-- <div class="image-fade"></div> -->
+
+        <!-- Cards Section -->
+        <section class="scroll-section">
+          <!-- Lines Container -->
+          <div class="lines-container">
+            <div class="container h-100">
+              <div class="row h-100 justify-content-between align-items-center">
+                <div class="col-md-2 h-100 d-flex justify-content-center">
+                  <img src="curve.png" alt="" class="line-img" />
+                </div>
+                <div class="col-md-2 h-100 d-flex justify-content-center">
+                  <img src="curve.png" alt="" class="line-img" />
+                </div>
+                <div class="col-md-2 h-100 d-flex justify-content-center">
+                  <img src="straight.png" alt="" class="line-img" />
+                </div>
+                <div class="col-md-2 h-100 d-flex justify-content-center">
+                  <img
+                    src="curve.png"
+                    alt=""
+                    class="line-img"
+                    style="transform: rotateY(180deg)"
+                  />
+                </div>
+                <div class="col-md-2 h-100 d-flex justify-content-center">
+                  <img
+                    src="curve.png"
+                    alt=""
+                    class="line-img"
+                    style="transform: rotateY(180deg)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cards Wrapper -->
+          <div class="cards-wrapper" id="cardsWrapper">
+            <div class="container">
+              <div class="row justify-content-between">
+                <div class="col-md-2">
+                  <div
+                    class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
+                  >
+                    <div>
+                      <img
+                        src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                        alt=""
+                        width="50"
+                        height="50"
+                        class="object-fit-cover"
+                      />
+                    </div>
+                    <div
+                      class="d-flex justify-content-center align-items-start flex-column"
+                    >
+                      <h6 class="m-0 p-0">Where is my order?</h6>
+                      <p class="m-0">Connected with Support</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div
+                    class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
+                  >
+                    <div>
+                      <img
+                        src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                        alt=""
+                        width="50"
+                        height="50"
+                        class="object-fit-cover"
+                      />
+                    </div>
+                    <div
+                      class="d-flex justify-content-center align-items-start flex-column"
+                    >
+                      <h6 class="m-0 p-0">Order Status</h6>
+                      <p class="m-0">Dialing...</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div
+                    class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
+                  >
+                    <div>
+                      <img
+                        src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                        alt=""
+                        width="50"
+                        height="50"
+                        class="object-fit-cover"
+                      />
+                    </div>
+                    <div
+                      class="d-flex justify-content-center align-items-start flex-column"
+                    >
+                      <h6 class="m-0 p-0">Return Request</h6>
+                      <p class="m-0">Dialing...</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div
+                    class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
+                  >
+                    <div>
+                      <img
+                        src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                        alt=""
+                        width="50"
+                        height="50"
+                        class="object-fit-cover"
+                      />
+                    </div>
+                    <div
+                      class="d-flex justify-content-center align-items-start flex-column"
+                    >
+                      <h6 class="m-0 p-0">Payment Issue</h6>
+                      <p class="m-0">Dialing...</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div
+                    class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
+                  >
+                    <div>
+                      <img
+                        src="https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+                        alt=""
+                        width="50"
+                        height="50"
+                        class="object-fit-cover"
+                      />
+                    </div>
+                    <div
+                      class="d-flex justify-content-center align-items-start flex-column"
+                    >
+                      <h6 class="m-0 p-0">Technical Support</h6>
+                      <p class="m-0">Dialing...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Image section -->
+        <section class="text-center pb-5">
+          <div class="container py-5 position-relative">
+            <div class="bg-overlay"></div>
+            <div class="row justify-content-between align-items-center gap-2">
+              <div
+                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+              >
+                <img src="wave.png" width="50px" alt="" />
+                <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
+                  <img src="halfpink-logo-.png" width="60px" alt="" />
+                </div>
+                <img src="wave.png" width="50px" alt="" />
+              </div>
+              <div
+                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+              >
+                <img src="wave.png" width="50px" alt="" />
+                <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
+                  <img src="halfpink-logo-.png" width="60px" alt="" />
+                </div>
+                <img src="wave.png" width="50px" alt="" />
+              </div>
+              <div class="col-md-3">
+                <img src="wave.png" width="65px" alt="" />
+                <img
+                  src="agent-profile.png"
+                  width="160px"
+                  class="pink-border rounded-circle"
+                  alt=""
+                />
+                <img src="wave.png" width="65px" alt="" />
+                <h4 class="lumi">“I’m here to help.”</h4>
+              </div>
+              <div
+                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+              >
+                <img src="wave.png" width="50px" alt="" />
+                <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
+                  <img src="halfpink-logo-.png" width="60px" alt="" />
+                </div>
+                <img src="wave.png" width="50px" alt="" />
+              </div>
+              <div
+                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+              >
+                <img src="wave.png" width="50px" alt="" />
+                <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
+                  <img src="halfpink-logo-.png" width="60px" alt="" />
+                </div>
+                <img src="wave.png" width="50px" alt="" />
+              </div>
+            </div>
+          </div>
+          <!-- <div class="container">
+            <img src="agent.png" class="w-100 object-fit-cover" alt="" />
+          </div> -->
+        </section>
+
+        <!-- H2 Animation Section -->
+        <section class="h2-animation-section">
+          <div class="h2-container">
+            <h2 class="h2-item fw-semibold">
+              Lumitalk handles the majority of <br /><span class="pink-text"
+                >non-emergency calls</span
+              >
+            </h2>
+            <h2 class="h2-item fw-semibold">
+              Leaving call takers free to focus on
+              <br /><span class="pink-text">crucial emergency calls.</span>
+            </h2>
+            <h2 class="h2-item fw-semibold">
+              Lumitalk handles the majority of <br /><span class="pink-text"
+                >non-emergency calls</span
+              >
+            </h2>
+            <h2 class="h2-item fw-semibold">
+              Leaving call takers free to focus on
+              <br /><span class="pink-text">crucial emergency calls.</span>
+            </h2>
+          </div>
+        </section>
+      </div>
     </div>
 
     <!-- Before stats Image-->
@@ -1134,6 +1223,58 @@
 
         const cardsWrapper = document.getElementById("cardsWrapper");
         const cards = document.querySelectorAll(".card-item");
+        // === SHOW .lumi WHEN CARD ANIMATION ENDS ===
+        const lumiDiv = document.querySelectorAll(".lumi");
+        const bgOverlay = document.querySelector(".bg-overlay");
+
+        gsap.set(lumiDiv, { autoAlpha: 0, display: "none" });
+        gsap.set(bgOverlay, { autoAlpha: 1, display: "block" }); // initially visible
+
+        ScrollTrigger.create({
+          trigger: ".scroll-section",
+          start: "top-=10 top",
+          end: "bottom top",
+
+          onLeave: () => {
+            // lumiDivs appear
+            lumiDiv.forEach((div) => {
+              gsap.to(div, {
+                autoAlpha: 1,
+                display: "block",
+                duration: 1,
+                ease: "power2.out",
+              });
+            });
+
+            // bgOverlay hides
+            gsap.to(bgOverlay, {
+              autoAlpha: 0,
+              display: "none",
+              duration: 1,
+              ease: "power2.out",
+            });
+          },
+
+          onEnterBack: () => {
+            // lumiDivs hide
+            lumiDiv.forEach((div) => {
+              gsap.to(div, {
+                autoAlpha: 0,
+                display: "none",
+                duration: 1,
+                ease: "power2.in",
+              });
+            });
+
+            // bgOverlay reappears
+            gsap.to(bgOverlay, {
+              autoAlpha: 1,
+              display: "block",
+              duration: 1,
+              ease: "power2.in",
+            });
+          },
+        });
 
         // === INDIVIDUAL CARD MOVEMENT CONFIG ===
         cards.forEach((card, index) => {
@@ -1176,7 +1317,7 @@
           }
 
           gsap.set(card, {
-            y: 10 * index,
+            y: 120,
             x: xOffset / 4,
           });
 
