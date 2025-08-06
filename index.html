@@ -503,6 +503,121 @@
         top: -80px;
         z-index: -1;
       } */
+
+      /* Responsive typography */
+      .main-heading {
+        font-size: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .main-heading {
+          font-size: 3rem;
+        }
+      }
+
+      /* Responsive padding/margins */
+      .hero-section {
+        padding: 60px 15px;
+      }
+
+      @media (min-width: 768px) {
+        .hero-section {
+          padding: 100px 15px;
+        }
+      }
+
+      /* Card responsive adjustments */
+      .card-item {
+        margin-bottom: 15px;
+      }
+
+      /* Image section responsive */
+      .lumi img {
+        width: 30px;
+      }
+
+      @media (min-width: 768px) {
+        .lumi img {
+          width: 50px;
+        }
+      }
+
+      /* Stats responsive */
+      .stat-number {
+        font-size: 3rem;
+      }
+
+      .stat-text {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .stat-number {
+          font-size: 5rem;
+        }
+
+        .stat-text {
+          font-size: 1.8rem;
+          padding: 0 2rem;
+        }
+      }
+
+      /* Form responsive */
+      .form-container {
+        width: 100%;
+      }
+
+      @media (min-width: 576px) {
+        .form-container {
+          width: 90%;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .form-container {
+          width: 70%;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .form-container {
+          width: 500px;
+        }
+      }
+
+      /* Hide elements on mobile */
+      @media (max-width: 767px) {
+        .bg-overlay {
+          display: none;
+        }
+        .cards-wrapper h6 {
+          font-size: 10px !important;
+        }
+        .cards-wrapper p {
+          font-size: 8px !important;
+        }
+        .cards-wrapper img {
+          width: 30px !important;
+          height: 30px !important;
+        }
+        .agent img:first-child,
+        .agent img:nth-child(3) {
+          width: 30px !important;
+          height: 30px !important;
+        }
+        .agent img:nth-child(2) {
+          width: 60px !important;
+          height: 60px !important;
+        }
+        .agent h4 {
+          font-size: 16px !important;
+        }
+        .lumi img{
+          width: 25px !important;
+          height: 25px !important;
+        }
+      }
     </style>
   </head>
 
@@ -542,7 +657,7 @@
 
     <div
       style="
-        background: url(bg.png);
+        background: url(bg-glow.png);
         background-size: contain;
         background-position: top center;
         background-repeat: no-repeat;
@@ -577,16 +692,18 @@
           <div class="lines-container">
             <div class="container h-100">
               <div class="row h-100 justify-content-between align-items-center">
-                <div class="col-md-2 h-100 d-flex justify-content-center">
+                <div
+                  class="col-md-2 d-none d-md-block h-100 d-flex justify-content-center"
+                >
                   <img src="curve.png" alt="" class="line-img" />
                 </div>
-                <div class="col-md-2 h-100 d-flex justify-content-center">
+                <div class="col-md-2 col-4 h-100 d-flex justify-content-center">
                   <img src="curve.png" alt="" class="line-img" />
                 </div>
-                <div class="col-md-2 h-100 d-flex justify-content-center">
+                <div class="col-md-2 col-4 h-100 d-flex justify-content-center">
                   <img src="straight.png" alt="" class="line-img" />
                 </div>
-                <div class="col-md-2 h-100 d-flex justify-content-center">
+                <div class="col-md-2 col-4 h-100 d-flex justify-content-center">
                   <img
                     src="curve.png"
                     alt=""
@@ -594,7 +711,9 @@
                     style="transform: rotateY(180deg)"
                   />
                 </div>
-                <div class="col-md-2 h-100 d-flex justify-content-center">
+                <div
+                  class="col-md-2 d-none d-md-block h-100 d-flex justify-content-center"
+                >
                   <img
                     src="curve.png"
                     alt=""
@@ -610,7 +729,7 @@
           <div class="cards-wrapper" id="cardsWrapper">
             <div class="container">
               <div class="row justify-content-between">
-                <div class="col-md-2">
+                <div class="col-md-2 d-none d-md-block">
                   <div
                     class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
                   >
@@ -631,7 +750,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-4 p-2">
                   <div
                     class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
                   >
@@ -652,7 +771,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-4 p-2">
                   <div
                     class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
                   >
@@ -673,7 +792,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-4 p-2">
                   <div
                     class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
                   >
@@ -694,7 +813,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 d-none d-md-block">
                   <div
                     class="d-flex p-2 justify-content-start align-items-start gap-3 pink-border rounded card-item"
                   >
@@ -722,11 +841,11 @@
 
         <!-- Image section -->
         <section class="text-center pb-5">
-          <div class="container py-5 position-relative">
+          <div class="container py-5 mt-5 mt-md-0 position-relative">
             <div class="bg-overlay"></div>
             <div class="row justify-content-between align-items-center gap-2">
               <div
-                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+                class="col-md-2 d-none d-md-flex justify-content-start align-items-center lumi"
               >
                 <img src="wave.png" width="50px" alt="" />
                 <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
@@ -735,7 +854,7 @@
                 <img src="wave.png" width="50px" alt="" />
               </div>
               <div
-                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+                class="col-md-2 col-3 d-flex justify-content-start align-items-center lumi"
               >
                 <img src="wave.png" width="50px" alt="" />
                 <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
@@ -743,7 +862,7 @@
                 </div>
                 <img src="wave.png" width="50px" alt="" />
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3 col-5 agent">
                 <img src="wave.png" width="65px" alt="" />
                 <img
                   src="agent-profile.png"
@@ -755,7 +874,7 @@
                 <h4 class="lumi">“I’m here to help.”</h4>
               </div>
               <div
-                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+                class="col-md-2 col-3 d-flex justify-content-start align-items-center lumi"
               >
                 <img src="wave.png" width="50px" alt="" />
                 <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
@@ -764,7 +883,7 @@
                 <img src="wave.png" width="50px" alt="" />
               </div>
               <div
-                class="col-md-2 d-flex justify-content-start align-items-center lumi"
+                class="col-md-2 d-none d-md-flex justify-content-start align-items-center lumi"
               >
                 <img src="wave.png" width="50px" alt="" />
                 <div class="bg-light p-1 rounded-4 pink-shadow pink-border">
@@ -1297,49 +1416,54 @@
           let xOffset = 0;
           let yOffset = 500;
 
-          switch (index) {
-            case 0:
-              xOffset = -40;
-              break;
-            case 1:
-              xOffset = -20;
-              break;
-            case 2:
-              xOffset = 0;
-              break;
-            case 3:
-              xOffset = 20;
-              break;
-            case 4:
-              xOffset = 40;
-              break;
+          const isMobile = window.innerWidth <= 768;
+
+          if (!isMobile) {
+            switch (index) {
+              case 0:
+                xOffset = -40;
+                break;
+              case 1:
+                xOffset = -20;
+                break;
+              case 2:
+                xOffset = 0;
+                break;
+              case 3:
+                xOffset = 20;
+                break;
+              case 4:
+                xOffset = 40;
+                break;
+            }
           }
 
-          // Custom ease for each card
+          // Custom ease
           let easeCurve;
           switch (index) {
             case 0:
             case 2:
-              easeCurve = "power1.inOut"; // smooth slow-fast-slow
+              easeCurve = "power1.inOut";
               break;
             case 1:
             case 3:
               easeCurve = "cubic-bezier(0.45, 0, 0.55, 1)";
-              // balanced slow start but stays visible
               break;
             case 4:
-              easeCurve = "power4.out"; // fast start then smooth stop
+              easeCurve = "power4.out";
               break;
+            default:
+              easeCurve = "power1.out";
           }
 
           gsap.set(card, {
-            y: 120,
-            x: xOffset / 4,
+            y: 0,
+            x: isMobile ? 0 : xOffset / 4,
           });
 
           gsap.to(card, {
             y: yOffset,
-            x: xOffset,
+            x: isMobile ? 0 : xOffset,
             ease: easeCurve,
             scrollTrigger: {
               trigger: ".scroll-section",
